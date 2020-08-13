@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const session = require('express-session')
 
 
 const PORT = process.env.PORT
@@ -15,8 +16,19 @@ app.use(express.json());
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname,'build')));
 
+app.use(
+    session({
+        secret: process.env.SECRET,
+        resave: false,
+        saveUninitialized: false
+    })
+)
+
 const userController = require('./build/controllers/users')
 app.use('/users', userController)
+
+const sessionsController = require('./build/controllers/sessions')
+app.use('/sessions', sessionsController)
 
 
 //Put ROUTES here
