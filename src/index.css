@@ -5,9 +5,25 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(33, 190, 198);;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#comic{
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#cookie1{
+  position: absolute;
+  top: 359px;
+  left: 520px;
+  max-width: 450px;
+  max-height: 289px;
+  
 }

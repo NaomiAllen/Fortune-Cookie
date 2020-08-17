@@ -1,32 +1,32 @@
 import React from 'react'
 import { Redirect } from "react-router-dom";
 import "../App.css";
-
+import { Form,Button,ButtonToolbar, FormGroup, FormControl, ControlLabel, HelpBlock } from 'rsuite';
 
 export default function Login(props) {
     if (props.isLoggedIn){
         return <Redirect to="/"/>;
     }
-    
+
         return (
-            <div>
-                <h1>LOG IN</h1>
-                <form className="login-form" onSubmit={(evt) => props.handleLogin(evt)}>
-                <input 
-                type="text" placeholder="Username"
-                onChange={(evt) => props.handleChange(evt)}
-                value={props.logUsername}></input><br></br>
+                <Form>
+                    <FormGroup onSubmit={(evt) => props.handleLogin(evt)}>
+                        <FormControl type="text" placeholder="Username"
+                        onChange={(evt) => props.handleChange(evt)}
+                        value={props.logUsername} id="loginform"/>
+                        
+                    </FormGroup><br />
 
-                <input 
-                type="password" placeholder="Password"
-                name="password"
-                onChange={(evt) => props.handleChange(evt)}
-                value={props.logPassword}
-                ></input>
-                <br></br>
-                <button>Log In</button>
-                </form>
-            </div>
-        )
-    }
-
+                    <FormGroup>
+                    <FormControl name="password" type="password" placeholder="Password" onChange={(evt) => props.handleChange(evt)}
+                    value={props.logPassword}/>
+                    </FormGroup><br />
+                    <FormGroup>
+                        <ButtonToolbar>
+                            <Button appearance="primary">Submit</Button>
+                            <Button appearance="default">Cancel</Button>
+                        </ButtonToolbar>
+                    </FormGroup>
+                </Form>
+        )}
+            

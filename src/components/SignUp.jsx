@@ -14,7 +14,7 @@ export default function SignUp(props) {
 
   return (
       <container>
-      <div className="sign-up mt-5">
+      <div className="sign-up">
         <h2>Sign up</h2>
         <form
           onSubmit={(evt) => props.handleSignUp(evt)}

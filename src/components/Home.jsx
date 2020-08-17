@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
+// import { Grommet } from 'grommet';
 
 
-export default class Home extends Component {
+// alert('Click the Cookie for your fortune')
+
+
+export default class Show extends Component {
     render() {
         return (
             <div>
-                <h1>Home</h1>
+                <img src="/comic1.jpg" alt="img" id='comic'></img>
+                <img src="/fortunecookie1.jpeg" alt='oops' id='cookie1'></img>
+                
             </div>
         )
     }

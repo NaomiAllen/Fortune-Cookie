@@ -8,14 +8,16 @@ import Show from './components/Show';
 import NewFortune from './components/NewFortune';
 
 
+
 let baseURL;
 
 if (process.env.NODE_ENV === "development") {
-  baseURL = "http://localhost:3000";
+  baseURL = "http://localhost:3001";
 }
 
 export default class App extends Component {
   state = {
+    
     fortune: "",
     userName: "",
     password: "",

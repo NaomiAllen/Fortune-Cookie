@@ -2,32 +2,31 @@ import React, { Component } from 'react'
 
 let baseURL;
 
-if (process.env.NODE_ENV === 'process'){
-    baseURL = 'http://localhost:3000';
+if (process.env.NODE_ENV === 'development'){
+    baseURL = 'http://localhost:3001';
 } 
 
 export default class NewFortune extends Component {
-    constructor(props){
-        super(props);
-        this.state={
-            fortune: "",
+        state={
+            formData: {
+                fortune:""
+            }
     };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+
 
     handleChange = (event) => {
-        this.setState({ [event.currentTarget.id]: event.currentTarget.value });
-        // const formData = {...this.state.formData, [e.target.name]: e.target.value};
-        // this.setState({formData});
+        const formData = {...this.state.formData, [event.target.name]: event.target.value};
+        this.setState({formData});
     }
 
     handleSubmit = (event)=>{
         event.preventDefault();
-        fetch(baseURL + "/fortune", {
+        let NewFortune= this.state.formData
+        console.log(NewFortune)
+        fetch(baseURL, {
             method: "POST",
             body: JSON.stringify({
-                fortune: this.state.fortune,
+                NewFortune
     }),
     headers: {
         "Content-Type": "application/json",
@@ -37,14 +36,16 @@ export default class NewFortune extends Component {
       .then((resJson) => {
         console.log(resJson);
         this.setState({
-            fortune: "",
+            formData: {
+                fortune: ""
+            } 
         });
       })
       .catch((error) => console.error({ Error: error }));
 }
 
 
-    render() {
+        render(){
         return (
             <div>
                 <form onSubmit={(event)=>this.handleSubmit(event)}>
@@ -52,7 +53,8 @@ export default class NewFortune extends Component {
                     name="fortune"
                     type="text" 
                     id="NewFortune"
-                    value={this.state.fortune} onChange={this.handleChange}></input>
+                    value={this.state.formData.fortune} 
+                    onChange={this.handleChange}></input>
 
 
                     <button type='submit'>Create Fortune</button>
@@ -61,3 +63,4 @@ export default class NewFortune extends Component {
         )
     }
 }
+
