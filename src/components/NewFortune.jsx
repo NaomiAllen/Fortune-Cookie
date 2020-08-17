@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 let baseURL;
 
-if (process.env.NODE_ENV === 'development'){
+if (process.env.NODE_ENV === 'process'){
     baseURL = 'http://localhost:3000';
 } 
 

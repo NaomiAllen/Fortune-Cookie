@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
+import {Link} from 'react-router-dom';
 
-export default function NavBar(props) {
+export default class NavBar extends Component {
 
+
+    render() {
         return (
             <container>
-                <link to="/Home" ><button>Home</button></link>
-                <link to="/NewFortune"><button>My Fortunes</button></link>
-                <link to="/Login" onClick={() => props.handleLogout()}><button>Logout</button></link>
-                
+                <Link to="/">Home</Link>
+                <Link to="/login">Logout</Link>
+                <Link to="/SignUp">Sign Up</Link>
             </container>
         )
     }
-
+}
 
 
 
