@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class NavBar extends Component {
-    render() {
+export default function NavBar(props) {
+
         return (
-            <div>
-                <h1>Nav</h1>
-                <button>Home</button>
-                <button>User Fortunes</button>
-                <button>Logout</button>
-            </div>
+            <container>
+                <link to="/Home" ><button>Home</button></link>
+                <link to="/NewFortune"><button>My Fortunes</button></link>
+                <link to="/Login" onClick={() => props.handleLogout()}><button>Logout</button></link>
+                
+            </container>
         )
     }
-}
+
 
 
 

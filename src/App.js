@@ -4,12 +4,14 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import Show from './components/Show';
+import NewFortune from './components/NewFortune';
 
 
 let baseURL;
 
 if (process.env.NODE_ENV === "development") {
-  baseURL = "http://localhost:3001";
+  baseURL = "http://localhost:3000";
 }
 
 export default class App extends Component {
@@ -95,6 +97,12 @@ handleLogout = ()=>{
   })
 }
 
+handleAddFortune = ()=> {
+  this.setState({
+    
+  })
+}
+
 
   render() {
     return (
@@ -139,6 +147,24 @@ handleLogout = ()=>{
                     handleSignup={this.handleSignup}
                     isLoggedIn={this.state.isLoggedIn}
                     isSignedUp={this.state.isSignedUp}
+                  />
+                )}
+              />
+               <Route
+                exact
+                path="/Show"
+                render={() => (
+                  <Show
+                  handleChange={this.handleChange}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/NewFortune"
+                render={() => (
+                  <NewFortune
+
                   />
                 )}
               />
