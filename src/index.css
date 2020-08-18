@@ -15,11 +15,14 @@ code {
 }
 
 
-
+#comic{
+  margin-top: 50px;
+  
+}
 
 #cookie1{
   position: absolute;
-  top: 359px;
+  top: 389px;
   left: 520px;
   max-width: 450px;
   max-height: 289px;
@@ -80,8 +83,10 @@ code {
   position: absolute;
   top: 450px;
   left: 650px;
-  width: 160px; 
-  height: 45px;
+  width: 190px; 
+  height: 50px;
+  background-color: rgb(33, 190, 198);
+  font-size: 20px;
 }
 
 #fortuneimg{
@@ -123,6 +128,29 @@ code {
   background-color:orange;
   color: white;
   font-size: 20px;
+}
+
+#navs{
+  position: absolute;
+  background-color: rgb(33, 190, 198);
+  top: 0;
+  margin-left: 0px;
+  width: 150%;
+  height:50px;
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+
+}
+
+#home, #logout, #loginz, #signup{
+  margin-right: 40px;
+  text-decoration: none;
+}
+
+#newfort{
+  text-decoration: none;
+  
 }
 
 
