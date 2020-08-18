@@ -1,6 +1,7 @@
 import React from "react";
-import "../App.css";
 import { Redirect } from "react-router-dom";
+import "../index.css";
+import { Form, Button, ButtonToolbar, FormGroup, FormControl} from 'rsuite';
 
 
 export default function SignUp(props) {
@@ -13,40 +14,24 @@ export default function SignUp(props) {
   }
 
   return (
-      <container>
-      <div className="sign-up">
-        <h2>Sign up</h2>
-        <form
-          onSubmit={(evt) => props.handleSignUp(evt)}
-        >
-          <input
-            type="text"
-            id="userName"
-            name="userName"
-            placeholder="Username"
+    <Form>
+    <img src="/comiclogin3.jpg" alt="" id="loginComic3"></img>
+        <FormGroup onSubmit={(evt) => props.handleLogin(evt)} >
+            <FormControl type="text" placeholder="USERNAME"
             onChange={(evt) => props.handleChange(evt)}
-            value={props.userName}
-          ></input>
-          <br />
+            value={props.logUsername} id="SignupForm"/>
+            
+        </FormGroup><br />
 
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            onChange={(evt) => props.handleChange(evt)}
-            value={props.password}
-          ></input>
-          <br />
-          <button type="submit">Sign up</button>
-          <br />
-
-        </form>
-      </div>
-      <br />
-      </container>
-    
-  );
-}
-
+        <FormGroup>
+        <FormControl name="password" type="password" placeholder="PASSWORD" onChange={(evt) => props.handleChange(evt)}
+        value={props.logPassword} id="SignupPass"/>
+        </FormGroup><br />
+        <FormGroup>
+            <ButtonToolbar>
+                <Button appearance="ghost" id="Signupbtn">Sign up</Button>
+            </ButtonToolbar>
+        </FormGroup>
+    </Form>
+)}
 

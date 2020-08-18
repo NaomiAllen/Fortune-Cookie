@@ -1,7 +1,7 @@
 import React from 'react'
 import { Redirect } from "react-router-dom";
-import "../App.css";
-import { Form,Button,ButtonToolbar, FormGroup, FormControl, ControlLabel, HelpBlock } from 'rsuite';
+import "../index.css";
+import { Form, Button, ButtonToolbar, FormGroup, FormControl} from 'rsuite';
 
 export default function Login(props) {
     if (props.isLoggedIn){
@@ -10,21 +10,21 @@ export default function Login(props) {
 
         return (
                 <Form>
-                    <FormGroup onSubmit={(evt) => props.handleLogin(evt)}>
-                        <FormControl type="text" placeholder="Username"
+                <img src="/comiclogin2.jpg" alt="" id="loginComic"></img>
+                    <FormGroup onSubmit={(evt) => props.handleLogin(evt)} >
+                        <FormControl type="text" placeholder="USERNAME"
                         onChange={(evt) => props.handleChange(evt)}
-                        value={props.logUsername} id="loginform"/>
+                        value={props.logUsername} id="LoginForm"/>
                         
                     </FormGroup><br />
 
                     <FormGroup>
-                    <FormControl name="password" type="password" placeholder="Password" onChange={(evt) => props.handleChange(evt)}
-                    value={props.logPassword}/>
+                    <FormControl name="password" type="password" placeholder="PASSWORD" onChange={(evt) => props.handleChange(evt)}
+                    value={props.logPassword} id="LoginPass"/>
                     </FormGroup><br />
                     <FormGroup>
                         <ButtonToolbar>
-                            <Button appearance="primary">Submit</Button>
-                            <Button appearance="default">Cancel</Button>
+                            <Button appearance="ghost" id="loginbtn">Login</Button>
                         </ButtonToolbar>
                     </FormGroup>
                 </Form>

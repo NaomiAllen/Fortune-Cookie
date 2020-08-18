@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "../index.css";
 
 let baseURL;
 
@@ -23,13 +24,14 @@ export default class NewFortune extends Component {
         event.preventDefault();
         let NewFortune= this.state.formData
         console.log(NewFortune)
-        fetch(baseURL, {
+        fetch(baseURL + "/fortunes/", {
             method: "POST",
-            body: JSON.stringify({
+            body: JSON.stringify(
                 NewFortune
-    }),
+    ),
     headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin":"*"
       },
     })
       .then((res) => res.json())
@@ -49,15 +51,23 @@ export default class NewFortune extends Component {
         return (
             <div>
                 <form onSubmit={(event)=>this.handleSubmit(event)}>
-                    <input 
+                    <img 
+                    src="fortune1.jpg" alt=""
+                    id="fortuneimg" ></img>
+                    
+                    <img 
+                    src="fortunecookie2.jpg" alt="" 
+                    id="cookie2"></img>
+
+                    <textarea 
                     name="fortune"
                     type="text" 
                     id="NewFortune"
                     value={this.state.formData.fortune} 
-                    onChange={this.handleChange}></input>
+                    onChange={this.handleChange}></textarea><br />
 
 
-                    <button type='submit'>Create Fortune</button>
+                    <button type='submit' id="fortunebtn">ADD FORTUNE</button>
                 </form>
             </div>
         )

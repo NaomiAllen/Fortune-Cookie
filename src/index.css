@@ -5,7 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(33, 190, 198);;
+  /* background-color: rgb(33, 190, 198); */
+  
 }
 
 code {
@@ -13,11 +14,8 @@ code {
     monospace;
 }
 
-#comic{
-  position: relative;
-  top: 0;
-  left: 0;
-}
+
+
 
 #cookie1{
   position: absolute;
@@ -25,5 +23,107 @@ code {
   left: 520px;
   max-width: 450px;
   max-height: 289px;
-  
 }
+
+#cookie2{
+  position: absolute;
+  top: 600px;
+  left: 550px;
+  width: 400px;
+  height: 400px;
+}
+
+
+#LoginForm{
+  position: absolute;
+  top: 320px;
+  left:550px;
+  width: 350px;
+  height: 40px;
+  box-shadow: cadetblue;
+}
+
+#LoginPass{
+  position: absolute;
+  top: 400px;
+  left:550px;
+  width: 350px;
+  height: 40px;
+  box-shadow: cadetblue;
+}
+
+#loginbtn{
+  position: absolute;
+  text-align: center;
+  top: 480px;
+  left: 650px; 
+  width: 180px; 
+  height: 45px;
+  background-color: orange;
+}
+
+#loginComic{
+  width: 1500px;
+  height: 1000px;
+}
+
+#NewFortune{
+  position: absolute;
+  top: 370px;
+  left: 500px;
+  height: 50px;
+  width: 500px;
+  font-size: 20px;
+}
+
+#fortunebtn{
+  position: absolute;
+  top: 450px;
+  left: 650px;
+  width: 160px; 
+  height: 45px;
+}
+
+#fortuneimg{
+  width: 1500px;
+  height: 1300px;
+}
+
+#loginComic3{
+  width: 1500px;
+  height: 1000px;
+}
+
+
+#SignupForm{
+  position: absolute;
+  top: 420px;
+  left:590px;
+  width: 350px;
+  height: 40px;
+  box-shadow: cadetblue;
+}
+
+#SignupPass{
+  position: absolute;
+  top: 500px;
+  left:590px;
+  width: 350px;
+  height: 40px;
+  box-shadow: cadetblue;
+}
+
+#Signupbtn{
+  position: absolute;
+  text-align: center;
+  top: 580px;
+  left: 680px; 
+  width: 150px; 
+  height: 45px;
+  background-color:orange;
+  color: white;
+  font-size: 20px;
+}
+
+
+
