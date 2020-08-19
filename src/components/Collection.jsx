@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
 
 
 let baseURL;
@@ -54,19 +56,32 @@ export default class Collection extends Component {
                 src="fortune1.jpg" 
                 alt="" 
                 id="collectimg"></img>
-                <table>
+                
+                <div id="collectdiv"> 
                     {this.state.collection.map(fortune =>{
                         return(
+                            <div key={fortune._id}>
+
+                                <IconButton 
+                                type="submit"
+                                onClick={this.props.handleDelete}>
+                                <DeleteIcon />
+                                </IconButton>
+                            
+                            
+                                {fortune.fortune}
 
                             
-                            <tr>
-                                <li>
-                                <td key={fortune._id}>{fortune.fortune}</td>
-                                </li>
-                            </tr>
+                            </div>
+                            
+                            // <tr>
+                                
+                            //     <td key={fortune._id}>{fortune.fortune}</td>
+                                
+                            // </tr>
                         )
                     })}
-                </table>
+                </div> 
                 
             </div>
         )

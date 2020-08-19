@@ -66,9 +66,11 @@ export default class NewFortune extends Component {
                     value={this.state.fortune} 
                     onChange={this.handleChange}></textarea><br />
 
-
-                    <Button variant="contained" color="primary" 
-                    type='submit' id="fortunebtn">ADD FORTUNE</Button>
+                    <Button 
+                    variant="contained" 
+                    color="primary" 
+                    type='submit' 
+                    id="fortunebtn">ADD FORTUNE</Button>
                 </form>
             </div>
         )

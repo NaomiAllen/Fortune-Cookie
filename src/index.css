@@ -201,14 +201,19 @@ h1{
   height: 1200px
 }
 
-table{
+#collectdiv{
   position: absolute;
   top: 320px;
-  left:300px;
+  left:400px;
   color: rgb(33, 190, 198);
   font-size: 20px;
-  
-  
+  padding: 10px;
+}
+
+
+#deletebtn{
+  position: absolute;
+  left:380px;
 }
 
 
