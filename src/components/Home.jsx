@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import "../index.css";
+import Button from '@material-ui/core/Button';
 
 
 
-// alert('Click the Cookie for your fortune')
+
 
 
 export default class Home extends Component {
@@ -13,9 +14,17 @@ export default class Home extends Component {
             <div>
                 <img src="/comic1.jpg" alt="img" id="comic"></img>
                 <img src="/fortunecookie1.jpeg" alt='oops' id='cookie1'></img>
-                <button 
+
+                {/* <button
                 onClick={this.props.getRandomFortune}
-                id="homebtn">Click Me</button>
+                id="homebtn">Click Me</button> */}
+
+                <Button variant="contained" color="primary" href="#contained-buttons"
+                onClick={this.props.getRandomFortune}
+                id="homebtn">Click Me</Button>
+                
+                
+
                 <p id="randomFortune">{this.props.randomFortune}</p>
                 
                 

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Redirect } from "react-router-dom";
 import "../index.css";
-import { Form, Button, ButtonToolbar, FormGroup, FormControl} from 'react-bootstrap';
+import { Form, FormGroup, FormControl} from 'react-bootstrap';
+import Button from '@material-ui/core/Button';
 
 export default function Login(props) {
     if (props.isLoggedIn){
@@ -11,6 +12,7 @@ export default function Login(props) {
         return (
                 <Form>
                 <img src="/comiclogin2.jpg" alt="" id="loginComic"></img>
+                <img src='fortunecookie3.png' alt="" id="cookie3"></img>
                     <FormGroup onSubmit={(evt) => props.handleLogin(evt)} >
                         <FormControl 
                         type="text" 
@@ -25,9 +27,10 @@ export default function Login(props) {
                     value={props.logPassword} id="LoginPass"/>
                     </FormGroup><br />
                     <FormGroup>
-                        <ButtonToolbar>
-                            <Button appearance="ghost" id="loginbtn">Login</Button>
-                        </ButtonToolbar>
+                        
+                            <Button
+                            variant="contained" color="primary" id="loginbtn">Login</Button>
+                        
                     </FormGroup>
                 </Form>
         )}

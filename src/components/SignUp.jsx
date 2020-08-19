@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Redirect } from "react-router-dom";
 import "../index.css";
-import { Form, Button, ButtonToolbar, FormGroup, FormControl} from 'react-bootstrap';
+import { Form, FormGroup, FormControl} from 'react-bootstrap';
+import Button from '@material-ui/core/Button';
 
 let baseURL;
 export default class Signup extends Component  {
@@ -81,10 +82,13 @@ render(){
         id="password"/>
         </FormGroup><br />
         <FormGroup>
-            <ButtonToolbar>
+            
             <Button  
-            id="Signupbtn" type="submit" onSubmit={(evt) => this.props.handleSignUp(evt)}>Sign up</Button>
-            </ButtonToolbar>
+            variant="contained" color="primary" 
+            id="Signupbtn"
+            type="submit" 
+            onSubmit={(evt) => this.props.handleSignUp(evt)}>Sign up</Button>
+            
         </FormGroup>
     </Form>
 )}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import "../index.css";
+import Button from '@material-ui/core/Button';
 
 let baseURL;
 
@@ -66,7 +67,8 @@ export default class NewFortune extends Component {
                     onChange={this.handleChange}></textarea><br />
 
 
-                    <button type='submit' id="fortunebtn">ADD FORTUNE</button>
+                    <Button variant="contained" color="primary" href="#outlined-buttons"
+                    type='submit' id="fortunebtn">ADD FORTUNE</Button>
                 </form>
             </div>
         )
