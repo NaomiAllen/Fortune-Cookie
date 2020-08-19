@@ -13,6 +13,7 @@ export default class NavBar extends Component {
                 <Link to="/login" id="loginz">Login</Link>
                 <Link to="/SignUp" id="signup">Sign Up</Link>
                 <Link to="/NewFortune" id="newfort">Add Fortune</Link>
+                <Link to="/Collection" id="collection">Collection</Link>
             </nav>
                 
             

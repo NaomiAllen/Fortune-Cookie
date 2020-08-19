@@ -8,42 +8,41 @@ if (process.env.NODE_ENV === 'development'){
 } 
 
 export default class NewFortune extends Component {
-        state={
-            formData: {
-                fortune:""
-            }
-    };
+    constructor(props){
+        super(props);
+        this.state = {
+            fortune: "",
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
 
-    handleChange = (event) => {
-        const formData = {...this.state.formData, [event.target.name]: event.target.value};
-        this.setState({formData});
+
+    handleChange(event) {
+        this.setState({fortune: event.target.value });
     }
 
     handleSubmit = (event)=>{
         event.preventDefault();
-        let NewFortune= this.state.formData
-        console.log(NewFortune)
-        fetch(baseURL + "/fortunes/", {
+        fetch(baseURL + "/fortunes", {
             method: "POST",
-            body: JSON.stringify(
-                NewFortune
-    ),
+            body: JSON.stringify({
+                fortune: this.state.fortune
+        }),
     headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin":"*"
-      },
+        
+    },
     })
       .then((res) => res.json())
       .then((resJson) => {
         console.log(resJson);
         this.setState({
-            formData: {
-                fortune: ""
-            } 
+            fortune: "",   
         });
-      })
-      .catch((error) => console.error({ Error: error }));
+    })
+    .catch((error) => console.error({ Error: error }));
 }
 
 
@@ -54,16 +53,16 @@ export default class NewFortune extends Component {
                     <img 
                     src="fortune1.jpg" alt=""
                     id="fortuneimg" ></img>
-                    
+
                     <img 
                     src="fortunecookie2.jpg" alt="" 
                     id="cookie2"></img>
 
                     <textarea 
                     name="fortune"
-                    type="text" 
+                    type="textarea" 
                     id="NewFortune"
-                    value={this.state.formData.fortune} 
+                    value={this.state.fortune} 
                     onChange={this.handleChange}></textarea><br />
 
 

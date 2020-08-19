@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Show from './components/Show';
 import NewFortune from './components/NewFortune';
+import Collection from './components/Collection'
 
 
 
@@ -16,21 +17,60 @@ if (process.env.NODE_ENV === "development") {
 }
 
 export default class App extends Component {
-  state = {
+  constructor(props){
+    super(props)
+    this.state = {
+      fortune: "",
+      userName: "",
+      password: "",
+      isLoggedIn: false,
+      isSignedUp: false,
+      allFortunes: [],
+      newFortune: "",
+      randomFortune: "",
+      
+    }
+    this.handleChange=this.handleChange.bind(this)
     
-    fortune: "",
-    userName: "",
-    password: "",
-    isSignedUp: false,
-    logUsername: "",
-    logPassword: "",
   }
+  componentDidMount(){
+    this.allFortunes()
+}
+
+allFortunes = (event)=>{
+  fetch(baseURL + '/fortunes',{
+    method:'GET'
+},{mode: "cors"})
+
+  .then(data => {
+    return data.json()},
+    err => console.log(err))
+  .then(parsedData => {
+    console.log(parsedData)
+    this.setState({
+      allFortunes: parsedData
+    })
+  },
+  err=> console.log(err))
+}
+
+getRandomFortune = ()=>{
+  let randomIndex = Math.floor(Math.random()* (this.state.allFortunes.length));
+  console.log(randomIndex)
+  let newRandomFortune= this.state.allFortunes[randomIndex]
+  this.setState({
+    randomFortune:newRandomFortune.fortune
+  })
+}
+
 
   handleChange = (event)=>{
+    console.log(event)
     this.setState({
-      [event.target.id]: event.target.value,
+      [event.target.name]: event.target.value,
     });
-  }
+  };
+
 
   handleSignup = (event)=>{
     event.preventDefault();
@@ -50,11 +90,11 @@ export default class App extends Component {
   .then ((data)=>{
     console.log(data);
     this.setState({
+      userName: "",
       password: "",
       isSignedUp: true,
-      userName: "",
-    })
-  })
+    });
+  });
 }
 
 handleLogin = (event)=>{
@@ -63,8 +103,8 @@ handleLogin = (event)=>{
   fetch(baseURL + "/sessions", {
     method: "POST",
     body: JSON.stringify({
-      logUsername: this.state.logUsername,
-      logPassword: this.state.logPassword
+      userName: this.state.userName,
+      password: this.state.password
     }),
     headers: {
       "Content-type": "application/json",
@@ -75,7 +115,8 @@ handleLogin = (event)=>{
       console.log(err);
     }
     return res.json();
-  }).then((data) => {
+  })
+  .then((data) => {
       if (data.error) {
         this.setState({
           warning: data.error,
@@ -83,8 +124,8 @@ handleLogin = (event)=>{
       }else{
         this.setState({
           isLoggedIn: true,
-          logUsername: data.userName,
-          logPassword: data.password,
+          userName: data.userName,
+          password: "",
         })
       }
   });
@@ -94,14 +135,7 @@ handleLogout = ()=>{
   this.setState({
     isLoggedIn: false,
     userName: "",
-    password: "",
     isSignedUp: false,
-  })
-}
-
-handleAddFortune = ()=> {
-  this.setState({
-    
   })
 }
 
@@ -122,6 +156,8 @@ handleAddFortune = ()=> {
                   <Home
                     isLoggedIn={this.state.isLoggedIn}
                     userName={this.state.userName}
+                    randomFortune={this.state.randomFortune}
+                    getRandomFortune={this.getRandomFortune}
                     />
                   )}
                 />
@@ -130,7 +166,7 @@ handleAddFortune = ()=> {
                 path="/login"
                 render={() => (
                   <Login
-                    logPassword={this.state.logPassword}
+                    logPassword={this.state.password}
                     handleChange={this.handleChange}
                     handleLogin={this.handleLogin}
                     isLoggedIn={this.state.isLoggedIn}
@@ -152,7 +188,7 @@ handleAddFortune = ()=> {
                   />
                 )}
               />
-               <Route
+              <Route
                 exact
                 path="/Show"
                 render={() => (
@@ -166,7 +202,19 @@ handleAddFortune = ()=> {
                 path="/NewFortune"
                 render={() => (
                   <NewFortune
-
+                    newFortune={this.state.newFortune}
+                    handleChange={this.handleChange}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/Collection"
+                render={() => (
+                  <Collection
+                    collection={this.state.collection}
+                    handleChange={this.handleChange}
+                    fortune={this.state.fortune}
                   />
                 )}
               />

@@ -100,22 +100,24 @@ code {
 }
 
 
-#SignupForm{
+#userName{
   position: absolute;
   top: 420px;
   left:590px;
   width: 350px;
   height: 40px;
   box-shadow: cadetblue;
+  font-size:20px;
 }
 
-#SignupPass{
+#password{
   position: absolute;
   top: 500px;
   left:590px;
   width: 350px;
   height: 40px;
   box-shadow: cadetblue;
+  font-size: 20px;
 }
 
 #Signupbtn{
@@ -143,7 +145,7 @@ code {
 
 }
 
-#home, #logout, #loginz, #signup{
+#home, #logout, #loginz, #signup,#newfort, #collection{
   margin-right: 40px;
   text-decoration: none;
 }
@@ -151,6 +153,20 @@ code {
 #newfort{
   text-decoration: none;
   
+}
+
+#homebtn{
+  position: absolute;
+  top: 580px;
+  left: 380px; 
+  width: 150px;
+}
+
+#randomFortune{
+  position: absolute;
+  top: 610px;
+  left: 380px; 
+  width: 150px;
 }
 
 
