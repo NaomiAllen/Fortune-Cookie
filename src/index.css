@@ -149,11 +149,11 @@ code {
   position: absolute;
   background-color: rgb(33, 190, 198);
   top: 0;
-  margin-left: 0px;
+  left: 0px;
   width: 150%;
   height:50px;
   font-size: 30px;
-  text-align: center;
+  text-align: left;
   padding: 10px;
 
 }
@@ -186,6 +186,32 @@ code {
   font-weight: bold;
   
 }
+
+h1{
+  position: absolute;
+  top: 250px;
+  left:500px;
+  color: rgb(33, 190, 198);
+}
+
+#collectimg{
+  
+  top:70px;
+  width:1400px;
+  height: 1200px
+}
+
+table{
+  position: absolute;
+  top: 320px;
+  left:300px;
+  color: rgb(33, 190, 198);
+  font-size: 20px;
+  
+  
+}
+
+
 
 
 

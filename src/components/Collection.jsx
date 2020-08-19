@@ -16,17 +16,34 @@ export default class Collection extends Component {
     componentDidMount(){
         this.getCollection()
     }
-    
+
     getCollection() {
         fetch(baseURL+ '/collection',{
             method:'GET'
         },{mode: "cors"})
         
         .then(data => {
+            console.log(data)
             return data.json()},
             err => console.log(err))
-        .then(parsedData => console.log(parsedData),
-        err=> console.log(err))
+        .then(parsedData => {
+            console.log(parsedData)
+            this.setState({
+            collection: parsedData
+        })
+    })
+    }
+
+    handleDelete(id){
+        fetch(baseURL+ '/collection'+ id,{
+            method:'DELETE'
+        }).then((response)=>{
+            const findIndex = this.state.collection.findIndex((collection) => collection._id === id);
+            const copyFortune = [...this.state.fortune];
+            copyFortune.splice(findIndex, 1);
+            this.setState({fortune: copyFortune})
+        })
+
     }
     
     render() {
@@ -34,14 +51,18 @@ export default class Collection extends Component {
             <div className='container'>
                 <h1>Your Fortunes</h1>
                 <img 
-                src="collect.jpg" 
+                src="fortune1.jpg" 
                 alt="" 
-                id="collecting"></img>
+                id="collectimg"></img>
                 <table>
                     {this.state.collection.map(fortune =>{
                         return(
+
+                            
                             <tr>
-                                <td key={fortune._id}>{fortune}</td>
+                                <li>
+                                <td key={fortune._id}>{fortune.fortune}</td>
+                                </li>
                             </tr>
                         )
                     })}
