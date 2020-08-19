@@ -15,9 +15,9 @@ export default class Collection extends Component {
         }
         this.getCollection = this.getCollection.bind(this)
     }
-    componentDidMount(){
-        this.getCollection()
-    }
+    // componentDidMount(){
+    //     this.getCollection()
+    // }
 
     getCollection() {
         fetch(baseURL+ '/collection',{
@@ -37,16 +37,33 @@ export default class Collection extends Component {
     }
 
     handleDelete(id){
-        fetch(baseURL+ '/collection'+ id,{
-            method:'DELETE'
-        }).then((response)=>{
-            const findIndex = this.state.collection.findIndex((collection) => collection._id === id);
-            const copyFortune = [...this.state.fortune];
-            copyFortune.splice(findIndex, 1);
-            this.setState({fortune: copyFortune})
+        fetch(baseURL + '/collection' + id, {
+            method: 'DELETE'
+        }).then((response) => {
+            this.setState(state => ({
+            collections: state.collections.filter(fortune => fortune._id !== id)
+            }))
         })
+      }
 
-    }
+
+    
+
+    // handleDelete(id){
+    //     console.log(id)
+    //     fetch(baseURL+ '/collection'+ id,{
+    //         method:'DELETE'
+    //     }).then((response)=>{
+    //         const findIndex = this.state.collection.findIndex((collection) => collection._id === id);
+    //         const copyFortune = [...this.state.collection];
+    //         copyFortune.splice(findIndex, 1);
+    //         this.setState({collection: copyFortune})
+    //     })
+
+    // }
+    // componentDidMount(){
+    //     this.getCollection()
+    // }
     
     render() {
         return (
@@ -63,26 +80,17 @@ export default class Collection extends Component {
                             <div key={fortune._id}>
 
                                 <IconButton 
-                                type="submit"
-                                onClick={this.props.handleDelete}>
+                                    type="submit"
+                                    onClick={(event)=> this.handleDelete(event)}>
                                 <DeleteIcon />
                                 </IconButton>
                             
                             
                                 {fortune.fortune}
-
-                            
                             </div>
-                            
-                            // <tr>
-                                
-                            //     <td key={fortune._id}>{fortune.fortune}</td>
-                                
-                            // </tr>
                         )
                     })}
-                </div> 
-                
+                </div>            
             </div>
         )
     }
