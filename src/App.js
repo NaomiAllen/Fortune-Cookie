@@ -42,7 +42,7 @@ export default class App extends Component {
 }
 
 allFortunes = (event)=>{
-  fetch(baseURL + '/fortunes',{
+  fetch(baseURL + 'fortunes',{
     method:'GET'
 },{mode: "cors"})
 
@@ -78,7 +78,7 @@ getRandomFortune = ()=>{
 
   handleSignup = (event)=>{
     event.preventDefault();
-    fetch(baseURL + '/users',{
+    fetch(baseURL + 'users',{
       method: 'POST',
       body: JSON.stringify({
         userName: this.state.userName,
@@ -104,7 +104,7 @@ getRandomFortune = ()=>{
 handleLogin = (event)=>{
   event.preventDefault();
 
-  fetch(baseURL + "/sessions", {
+  fetch(baseURL + "sessions", {
     method: "POST",
     body: JSON.stringify({
       userName: this.state.userName,

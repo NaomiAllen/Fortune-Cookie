@@ -34,7 +34,7 @@ export default class Signup extends Component  {
 
     handleSignUp = (event)=>{
         event.preventDefault();
-        fetch(baseURL + '/users',{
+        fetch(baseURL + 'users',{
             method: 'POST',
             body: JSON.stringify({
             userName: this.state.userName,

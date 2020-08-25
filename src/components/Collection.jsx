@@ -25,7 +25,7 @@ export default class Collection extends Component {
     // }
 
     getCollection() {
-        fetch(baseURL+ '/collection',{
+        fetch(baseURL+ 'collection',{
             method:'GET'
         },{mode: "cors"})
         
@@ -44,7 +44,7 @@ export default class Collection extends Component {
 
 
     handleDelete(deletedFortune){
-        fetch(baseURL + '/collection' + deletedFortune._id, {
+        fetch(baseURL + 'collection/' + deletedFortune._id, {
           method: 'DELETE'
         }).then((response) => {
           this.setState(state => ({

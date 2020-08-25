@@ -30,7 +30,7 @@ export default class NewFortune extends Component {
 
     handleSubmit = (event)=>{
         event.preventDefault();
-        fetch(baseURL + "/fortunes", {
+        fetch(baseURL + "fortunes", {
             method: "POST",
             body: JSON.stringify({
                 fortune: this.state.fortune
