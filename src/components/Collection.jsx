@@ -36,16 +36,17 @@ export default class Collection extends Component {
     })
     }
 
-    handleDelete(id){
-        fetch(baseURL + '/collection' + id, {
-            method: 'DELETE'
+
+
+    handleDelete(deletedFortune){
+        fetch(baseURL + '/collection' + deletedFortune._id, {
+          method: 'DELETE'
         }).then((response) => {
-            this.setState(state => ({
-            collections: state.collections.filter(fortune => fortune._id !== id)
-            }))
+          this.setState(state => ({
+            collection: state.collection.filter(fortune => fortune._id !== deletedFortune._id)
+          }))
         })
       }
-
 
     
 
@@ -61,9 +62,9 @@ export default class Collection extends Component {
     //     })
 
     // }
-    // componentDidMount(){
-    //     this.getCollection()
-    // }
+    componentDidMount(){
+        this.getCollection()
+    }
     
     render() {
         return (
