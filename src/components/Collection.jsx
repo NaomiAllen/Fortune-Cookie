@@ -4,9 +4,14 @@ import IconButton from '@material-ui/core/IconButton';
 
 
 let baseURL;
-if (process.env.NODE_ENV === "development") {
-    baseURL = "http://localhost:3001";
-  }
+
+if (process.env.NODE_ENV === 'development'){
+    baseURL = 'http://localhost:3001';
+} else {
+    baseURL = 'https://my-fortune-api.herokuapp.com/';
+}
+  
+console.log('current base URL:', baseURL)
 export default class Collection extends Component {
     constructor(props){
         super(props);

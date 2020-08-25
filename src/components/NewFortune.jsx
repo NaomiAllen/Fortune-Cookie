@@ -6,7 +6,11 @@ let baseURL;
 
 if (process.env.NODE_ENV === 'development'){
     baseURL = 'http://localhost:3001';
-} 
+} else {
+    baseURL = 'https://my-fortune-api.herokuapp.com/';
+}
+  
+console.log('current base URL:', baseURL)
 
 export default class NewFortune extends Component {
     constructor(props){
